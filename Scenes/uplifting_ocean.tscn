@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://cq154mcxmfga3" path="res://Scenes/submarine.tscn" id="1_6lusw"]
 [ext_resource type="Texture2D" uid="uid://bj06ofjx6s0ao" path="res://Assets/Sprites/sand.png" id="1_vlvd4"]
+[ext_resource type="PackedScene" uid="uid://bksbg0431c11j" path="res://Scenes/dialog.tscn" id="1_w7ias"]
 [ext_resource type="Texture2D" uid="uid://b2qfcxg45gvso" path="res://Assets/Sprites/sand2.png" id="2_t48j5"]
 [ext_resource type="PackedScene" uid="uid://cys8kbly4vlqy" path="res://Assets/Sprites/seaweed_animated.tscn" id="3_c280b"]
 [ext_resource type="Texture2D" uid="uid://bb0wtaa4h6diu" path="res://Assets/Sprites/rock.png" id="4_lux2x"]
@@ -250,3 +251,12 @@ position = Vector2(547, 390)
 texture = ExtResource("6_3y8e8")
 
 [node name="Menu" parent="." unique_id=611884111 instance=ExtResource("13_24i8k")]
+offset_left = 24.0
+offset_top = 26.0
+offset_right = 70.32
+offset_bottom = 34.927994
+offset_transform_enabled = true
+
+[node name="Dialog" parent="." unique_id=1563229591 instance=ExtResource("1_w7ias")]
+position = Vector2(214.99997, 172)
+scale = Vector2(-0.13478641, -4.424723)
