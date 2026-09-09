@@ -1,9 +1,11 @@
 [gd_scene format=3 uid="uid://cq154mcxmfga3"]
 
 [ext_resource type="Texture2D" uid="uid://crfxgt5kskg30" path="res://Assets/Sprites/submarine.png" id="1_74qfh"]
+[ext_resource type="Script" uid="uid://vw7ubpxd70ma" path="res://Scripts/submarine.gd" id="1_tq48s"]
 [ext_resource type="Texture2D" uid="uid://jtwac8rq4h5q" path="res://Assets/Sprites/cat.png" id="2_tq48s"]
 
 [node name="Sub2D" type="Node2D" unique_id=280165175]
+script = ExtResource("1_tq48s")
 
 [node name="Submarine" type="Sprite2D" parent="." unique_id=886378409]
 position = Vector2(286, 463)

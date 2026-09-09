@@ -10,10 +10,15 @@ config_version=5
 
 [application]
 
-config/name="New Game Project"
+config/name="Uplifting Ocean"
 run/main_scene="uid://d3mhiljhlmjj3"
 config/features=PackedStringArray("4.7", "Forward Plus")
 config/icon="res://icon.svg"
+
+[autoload]
+
+EventBus="*uid://uwdathscoi06"
+DialogManager="uid://cjq4rqp8ynh5c"
 
 [display]
 
@@ -21,6 +26,10 @@ window/size/viewport_width=1024
 window/size/viewport_height=768
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/project-time-tracker/plugin.cfg")
 
 [file_customization]
 

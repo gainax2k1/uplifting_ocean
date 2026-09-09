@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Dialogue" format=3 uid="uid://j0dq65h1l1w1"]
+
+[ext_resource type="Script" uid="uid://cmfv4wy4eohe4" path="res://Scripts/Dialogue.gd" id="1_slhys"]
+[ext_resource type="Texture2D" uid="uid://c4gjl1l7bh3t6" path="res://Assets/Sprites/puffer-big.png" id="1_w2xov"]
+
+[resource]
+script = ExtResource("1_slhys")
+NPC_Icon = ExtResource("1_w2xov")
+Dialogs = Array[String](["Hey, you look like you could use some help!", "I'm Puffy McPufferson, and I happen to be GREAT at breathing excercises!", "They can really help when you're feeling overwhelmed and stressed.", "Slowly take a deep breath where your belly fills up and hold it for 10 seconds. Then, sloooowly release it like you're blowing out  a straw."])
+metadata/_custom_type_script = "uid://cmfv4wy4eohe4"
