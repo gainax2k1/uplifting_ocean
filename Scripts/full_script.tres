@@ -1,0 +1,33 @@
+[gd_resource type="Resource" script_class="FullScript" format=3 uid="uid://clvvjay05gcvp"]
+
+[ext_resource type="Script" uid="uid://cmfv4wy4eohe4" path="res://Scripts/Dialogue.gd" id="1_ratjg"]
+[ext_resource type="Script" uid="uid://ccclnbarsi5c6" path="res://Scripts/FullScript.gd" id="2_7e12r"]
+[ext_resource type="Texture2D" uid="uid://cy1lbchsg4i61" path="res://Assets/Sprites/starfish.png" id="2_bd0cp"]
+[ext_resource type="Texture2D" uid="uid://by6mcmd8wespp" path="res://Assets/Sprites/puffer-small.png" id="3_u5gu4"]
+[ext_resource type="Texture2D" uid="uid://bmfhdfd0ae4fn" path="res://Assets/Sprites/eel.png" id="4_kc8wv"]
+
+[sub_resource type="Resource" id="Resource_k0ep2"]
+script = ExtResource("1_ratjg")
+NPC_Name = "Starfish"
+NPC_Icon = ExtResource("2_bd0cp")
+Dialogs = Array[String](["Hello!", "How's it going?", "Have a starry day! <3"])
+metadata/_custom_type_script = "uid://cmfv4wy4eohe4"
+
+[sub_resource type="Resource" id="Resource_nbxii"]
+script = ExtResource("1_ratjg")
+NPC_Name = "Puffer"
+NPC_Icon = ExtResource("3_u5gu4")
+Dialogs = Array[String](["Heyo!", "Need help breathing?", "Let's practice deep breathing!"])
+metadata/_custom_type_script = "uid://cmfv4wy4eohe4"
+
+[sub_resource type="Resource" id="Resource_h456a"]
+script = ExtResource("1_ratjg")
+NPC_Name = "Eel"
+NPC_Icon = ExtResource("4_kc8wv")
+Dialogs = Array[String](["HELLO!", "YOU LOOK A LITTL LOW ON ENERGY!", "THIS MIGHT \"SHOCK\" YOU, BUT I CAN HELP YOU!", "LET'S GOOOO!!!"])
+metadata/_custom_type_script = "uid://cmfv4wy4eohe4"
+
+[resource]
+script = ExtResource("2_7e12r")
+Dialogues = Array[ExtResource("1_ratjg")]([SubResource("Resource_k0ep2"), SubResource("Resource_nbxii"), SubResource("Resource_h456a")])
+metadata/_custom_type_script = "uid://ccclnbarsi5c6"

@@ -2,12 +2,14 @@
 
 [ext_resource type="Script" uid="uid://bb24tspl4newg" path="res://Scenes/Dialogue_Manager.gd" id="1_edf0l"]
 [ext_resource type="Script" uid="uid://dchd2qkhl6wvi" path="res://Scripts/dialog_box.gd" id="1_irs7l"]
+[ext_resource type="Resource" uid="uid://clvvjay05gcvp" path="res://Scripts/full_script.tres" id="2_87kay"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_ga5kc"]
 size = Vector2(100, 100)
 
 [node name="Dialog" type="Node2D" unique_id=1563229591]
 script = ExtResource("1_edf0l")
+full_script = ExtResource("2_87kay")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1892181951]
 offset = Vector2(200, 100)
@@ -48,6 +50,7 @@ layout_mode = 2
 texture = SubResource("PlaceholderTexture2D_ga5kc")
 
 [node name="SpeakerLabel" type="Label" parent="CanvasLayer/DialogBox/MarginContainer/HBoxContainer/VBoxContainer" unique_id=1861606087]
+unique_name_in_owner = true
 layout_mode = 2
 text = "speaker label default"
 
@@ -78,4 +81,4 @@ unique_name_in_owner = true
 layout_mode = 2
 text = "Done!"
 
-[connection signal="pressed" from="CanvasLayer/DialogBox/MarginContainer/HBoxContainer/VBoxContainer2/DoneButton" to="CanvasLayer/DialogBox" method="_on_done_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/DialogBox/MarginContainer/HBoxContainer/VBoxContainer2/DoneButton" to="." method="_on_done_button_pressed"]
