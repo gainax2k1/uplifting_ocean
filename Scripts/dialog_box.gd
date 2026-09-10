@@ -1,7 +1,7 @@
 extends Panel
 
 @onready var dialogue_text : RichTextLabel = %DialogText
-@onready var npc_icon : TextureRect = %NPCIcon
+@onready var npc_icon : AnimatedSprite2D = %NPCIcon
 
 
 

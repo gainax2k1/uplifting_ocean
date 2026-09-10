@@ -3,9 +3,7 @@
 [ext_resource type="Script" uid="uid://bb24tspl4newg" path="res://Scenes/Dialogue_Manager.gd" id="1_edf0l"]
 [ext_resource type="Script" uid="uid://dchd2qkhl6wvi" path="res://Scripts/dialog_box.gd" id="1_irs7l"]
 [ext_resource type="Resource" uid="uid://clvvjay05gcvp" path="res://Scripts/full_script.tres" id="2_87kay"]
-
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_ga5kc"]
-size = Vector2(100, 100)
+[ext_resource type="SpriteFrames" uid="uid://dqsy32ah0tj0r" path="res://Assets/Sprites/icon_sprite_frames.tres" id="4_u40lh"]
 
 [node name="Dialog" type="Node2D" unique_id=1563229591]
 script = ExtResource("1_edf0l")
@@ -44,10 +42,12 @@ theme_override_constants/separation = 10
 layout_mode = 2
 alignment = 1
 
-[node name="NPCIcon" type="TextureRect" parent="CanvasLayer/DialogBox/MarginContainer/HBoxContainer/VBoxContainer" unique_id=191042840]
+[node name="NPCIcon" type="AnimatedSprite2D" parent="CanvasLayer/DialogBox/MarginContainer/HBoxContainer/VBoxContainer" unique_id=2111244090]
 unique_name_in_owner = true
-layout_mode = 2
-texture = SubResource("PlaceholderTexture2D_ga5kc")
+position = Vector2(79, 66)
+scale = Vector2(1.31, 1.31)
+sprite_frames = ExtResource("4_u40lh")
+animation = &"starfish-icon-ani"
 
 [node name="SpeakerLabel" type="Label" parent="CanvasLayer/DialogBox/MarginContainer/HBoxContainer/VBoxContainer" unique_id=1861606087]
 unique_name_in_owner = true
@@ -63,22 +63,17 @@ alignment = 1
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
-text = "1. Take 5 long, deep breaths through your nose, and exhale through puckered lips.
-2. Place both feet flat on the floor. Wiggle your toes. Curl and uncurl your toes several
-times. Spend a moment noticing the sensations in your feet.
-3. Stomp your feet on the ground several times. Pay attention to the sensations in your feet
-and legs as you make contact with the ground.
-4. Clench your hands into fists, then release the tension. Repeat this 10 times.
-5. Press your palms together. Press them harder and hold this pose for 15 seconds. Pay
-attention to the feeling of tension in your hands and arms.
-6. Rub your palms together briskly. Notice and sound and the feeling of warmth.
-7. Reach your hands over your head like you’re trying to reach the sky. Stretch like this for 5
-seconds. Bring your arms down and let them relax at your sides.
-8. Take 5 more deep breaths and notice the feeling of calm in your body."
+text = "1. Take 5 long, deep breaths through your nose, and exhale through puckered lips."
+
+[node name="ContinueButton" type="Button" parent="CanvasLayer/DialogBox/MarginContainer/HBoxContainer/VBoxContainer2" unique_id=769049672]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Continue"
 
 [node name="DoneButton" type="Button" parent="CanvasLayer/DialogBox/MarginContainer/HBoxContainer/VBoxContainer2" unique_id=94282263]
 unique_name_in_owner = true
 layout_mode = 2
 text = "Done!"
 
+[connection signal="pressed" from="CanvasLayer/DialogBox/MarginContainer/HBoxContainer/VBoxContainer2/ContinueButton" to="." method="_on_continue_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/DialogBox/MarginContainer/HBoxContainer/VBoxContainer2/DoneButton" to="." method="_on_done_button_pressed"]
