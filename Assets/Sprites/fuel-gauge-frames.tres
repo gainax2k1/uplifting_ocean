@@ -1,0 +1,46 @@
+[gd_resource type="SpriteFrames" format=3 uid="uid://dinnbsnscnmar"]
+
+[ext_resource type="Texture2D" uid="uid://lu0r8urmlhuf" path="res://Assets/Sprites/power_meter_blank-Sheet.png" id="1_j1weu"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2puqb"]
+atlas = ExtResource("1_j1weu")
+region = Rect2(48, 0, 48, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rp0ke"]
+atlas = ExtResource("1_j1weu")
+region = Rect2(96, 0, 48, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o737l"]
+atlas = ExtResource("1_j1weu")
+region = Rect2(144, 0, 48, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7pg0t"]
+atlas = ExtResource("1_j1weu")
+region = Rect2(192, 0, 48, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f1elx"]
+atlas = ExtResource("1_j1weu")
+region = Rect2(240, 0, 48, 36)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2puqb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rp0ke")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o737l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7pg0t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f1elx")
+}],
+"loop": 0,
+"name": &"power-ani",
+"speed": 5.0
+}]

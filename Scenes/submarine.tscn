@@ -2,7 +2,9 @@
 
 [ext_resource type="Texture2D" uid="uid://crfxgt5kskg30" path="res://Assets/Sprites/submarine.png" id="1_74qfh"]
 [ext_resource type="Script" uid="uid://vw7ubpxd70ma" path="res://Scripts/submarine.gd" id="1_tq48s"]
-[ext_resource type="Texture2D" uid="uid://jtwac8rq4h5q" path="res://Assets/Sprites/cat.png" id="2_tq48s"]
+[ext_resource type="SpriteFrames" uid="uid://b5mppdtkwflr5" path="res://Assets/Sprites/cat_frames.tres" id="3_tq48s"]
+[ext_resource type="SpriteFrames" uid="uid://dinnbsnscnmar" path="res://Assets/Sprites/fuel-gauge-frames.tres" id="4_ue3ij"]
+[ext_resource type="Script" uid="uid://fsgr6l5tqfpf" path="res://Scenes/power_gauge.gd" id="5_je60v"]
 
 [node name="Sub2D" type="Node2D" unique_id=280165175]
 script = ExtResource("1_tq48s")
@@ -11,7 +13,16 @@ script = ExtResource("1_tq48s")
 position = Vector2(286, 463)
 texture = ExtResource("1_74qfh")
 
-[node name="Cat" type="Sprite2D" parent="Submarine" unique_id=971888671]
-position = Vector2(34, -33)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("2_tq48s")
+[node name="Cat" type="AnimatedSprite2D" parent="Submarine" unique_id=1068311228]
+position = Vector2(35, -33)
+sprite_frames = ExtResource("3_tq48s")
+animation = &"cat-mood-happy"
+autoplay = "cat-mood-sad"
+frame_progress = 0.59952736
+
+[node name="PowerGauge" type="AnimatedSprite2D" parent="Submarine" unique_id=208710465]
+unique_name_in_owner = true
+position = Vector2(-105, 95)
+sprite_frames = ExtResource("4_ue3ij")
+animation = &"power-ani"
+script = ExtResource("5_je60v")

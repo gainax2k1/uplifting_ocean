@@ -1,0 +1,52 @@
+[gd_resource type="SpriteFrames" format=3 uid="uid://b5mppdtkwflr5"]
+
+[ext_resource type="Texture2D" uid="uid://cjydmpj5wojua" path="res://Assets/Sprites/cat_animated_v2-Sheet.png" id="1_h6va6"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_je60v"]
+atlas = ExtResource("1_h6va6")
+region = Rect2(0, 0, 150, 170)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a07w3"]
+atlas = ExtResource("1_h6va6")
+region = Rect2(150, 0, 150, 170)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wqqa5"]
+atlas = ExtResource("1_h6va6")
+region = Rect2(450, 0, 150, 170)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s8co7"]
+atlas = ExtResource("1_h6va6")
+region = Rect2(300, 0, 150, 170)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 10.0,
+"texture": SubResource("AtlasTexture_je60v")
+}],
+"loop": 1,
+"name": &"cat-mood-happy",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 12.0,
+"texture": SubResource("AtlasTexture_a07w3")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_wqqa5")
+}],
+"loop": 1,
+"name": &"cat-mood-medium",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 12.0,
+"texture": SubResource("AtlasTexture_s8co7")
+}, {
+"duration": 0.7,
+"texture": SubResource("AtlasTexture_wqqa5")
+}],
+"loop": 1,
+"name": &"cat-mood-sad",
+"speed": 5.0
+}]

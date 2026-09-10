@@ -8,6 +8,8 @@ extends Node
 @onready var SpeakerLabel = %SpeakerLabel
 @onready var done_button = %DoneButton
 @onready var cont_button = %ContinueButton
+@onready var power_gauge = %Sub2D.get_node("%PowerGauge")
+
 
 var current_NPC_index = 0
 var current_dialog_index = 0
@@ -53,6 +55,9 @@ func _on_done_button_pressed() -> void:
 		%AskForHelp.disabled = true
 		%AskForHelp.visible = false
 		#CALL ENDING...????????????????????
+		power_gauge.play("power-ani")
+		
+		
 	DialogBox.hide()
 
 func _on_ask_for_help_pressed() -> void:

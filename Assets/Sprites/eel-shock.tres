@@ -1,0 +1,25 @@
+[gd_resource type="SpriteFrames" format=3 uid="uid://bts3ku3bh2maa"]
+
+[ext_resource type="Texture2D" uid="uid://calmtivegp1to" path="res://Assets/Sprites/eel-full-Sheet.png" id="1_nlj22"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4r72x"]
+atlas = ExtResource("1_nlj22")
+region = Rect2(0, 0, 192, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4p246"]
+atlas = ExtResource("1_nlj22")
+region = Rect2(192, 0, 192, 64)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 0.8,
+"texture": SubResource("AtlasTexture_4r72x")
+}, {
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_4p246")
+}],
+"loop": 1,
+"name": &"eel-shock",
+"speed": 5.0
+}]

@@ -7,13 +7,14 @@
 [ext_resource type="PackedScene" uid="uid://cys8kbly4vlqy" path="res://Assets/Sprites/seaweed_animated.tscn" id="3_c280b"]
 [ext_resource type="Texture2D" uid="uid://bb0wtaa4h6diu" path="res://Assets/Sprites/rock.png" id="4_lux2x"]
 [ext_resource type="Texture2D" uid="uid://dtpuyd81u1tum" path="res://Assets/Sprites/rock2.png" id="5_4tqgs"]
-[ext_resource type="Texture2D" uid="uid://bmfhdfd0ae4fn" path="res://Assets/Sprites/eel.png" id="6_3y8e8"]
-[ext_resource type="Texture2D" uid="uid://c4gjl1l7bh3t6" path="res://Assets/Sprites/puffer-big.png" id="6_7pev3"]
 [ext_resource type="Texture2D" uid="uid://dhbq8hbjo5gf4" path="res://Assets/Sprites/coral.png" id="6_fwpsv"]
-[ext_resource type="Texture2D" uid="uid://by6mcmd8wespp" path="res://Assets/Sprites/puffer-small.png" id="7_3y8e8"]
 [ext_resource type="Texture2D" uid="uid://cy1lbchsg4i61" path="res://Assets/Sprites/starfish.png" id="8_red3x"]
-[ext_resource type="Texture2D" uid="uid://bt0fimqghhalo" path="res://Assets/Sprites/eel-shock.png" id="10_red3x"]
+[ext_resource type="Script" uid="uid://13yfh64w80ll" path="res://Scenes/eel.gd" id="11_51c17"]
+[ext_resource type="Script" uid="uid://bl3j6uns3li4" path="res://Scripts/starfish_rotate.gd" id="11_w7ias"]
+[ext_resource type="SpriteFrames" uid="uid://bts3ku3bh2maa" path="res://Assets/Sprites/eel-shock.tres" id="12_51c17"]
+[ext_resource type="Script" uid="uid://bhlcfdpmjju4i" path="res://Scenes/puffer_ani.gd" id="12_w7ias"]
 [ext_resource type="PackedScene" uid="uid://bbvbfgsytow76" path="res://Scenes/menu.tscn" id="13_24i8k"]
+[ext_resource type="SpriteFrames" uid="uid://bg1yqadue7ki0" path="res://Assets/Sprites/puffer-puff.tres" id="13_51c17"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_t48j5"]
 texture = ExtResource("1_vlvd4")
@@ -229,26 +230,27 @@ texture = ExtResource("6_fwpsv")
 
 [node name="Fish" type="TileMapLayer" parent="." unique_id=1480165960]
 
-[node name="PufferBig" type="Sprite2D" parent="Fish" unique_id=2008697249]
-position = Vector2(156, 428)
-texture = ExtResource("6_7pev3")
-
-[node name="PufferSmall" type="Sprite2D" parent="Fish" unique_id=2098888319]
-position = Vector2(485, 448)
-texture = ExtResource("7_3y8e8")
-
 [node name="Starfish" type="Sprite2D" parent="Fish" unique_id=152542600]
+unique_name_in_owner = true
 position = Vector2(589, 578)
-rotation = 5.8171825
+rotation = -6.2831855
 texture = ExtResource("8_red3x")
+script = ExtResource("11_w7ias")
 
-[node name="EelShock" type="Sprite2D" parent="Fish" unique_id=1029899196]
-position = Vector2(632, 482)
-texture = ExtResource("10_red3x")
+[node name="Eel" type="AnimatedSprite2D" parent="Fish" unique_id=817692604]
+unique_name_in_owner = true
+position = Vector2(705, 493)
+sprite_frames = ExtResource("12_51c17")
+animation = &"eel-shock"
+frame_progress = 0.43603608
+script = ExtResource("11_51c17")
 
-[node name="Eel" type="Sprite2D" parent="Fish" unique_id=2128064671]
-position = Vector2(547, 390)
-texture = ExtResource("6_3y8e8")
+[node name="Puffer" type="AnimatedSprite2D" parent="Fish" unique_id=1323350211]
+unique_name_in_owner = true
+position = Vector2(559, 463)
+sprite_frames = ExtResource("13_51c17")
+animation = &"puffer-ani"
+script = ExtResource("12_w7ias")
 
 [node name="Menu" parent="." unique_id=611884111 instance=ExtResource("13_24i8k")]
 offset_left = 24.0
