@@ -7,7 +7,7 @@
 script = ExtResource("1_ratjg")
 NPC_Name = "Starfish"
 NPC_Icon = "starfish-icon-ani "
-Dialogs = Array[String](["Hello!", "How's it going?", "Have a starry day! <3"])
+Dialogs = Array[String](["Hello! I'm Starry! It looks like you had a pretty traumatic experience, what with your sub sinking and all..", "After all that, you're probably feeling pretty anxious and overwhelmed.", "When I feel like I need help dealing with those feelings, I like to follow the \"5-4-3-2-1 Technique\".  Let's try it together! There's no rush, just let me know when you've done each step.", "5 - What are 5 things you can see? It can be something small, or maybe a detail of something big.", "4 - What are 4 things you can feel? Maybe it's how your clothing feels, the chair you're sitting in, or the temperature of the air around you. ", "3 - What are 3 things you can hear? Try to hear things you migh normally ignore, like the sound of fan blowing, or ticking of a clock.", "2 - What are 2 things you can smell? It can just be in the air around you, like air freshener. Or you can try something like a plant that has a scent.", "1 - What is 1 thing you can taste? Maybe try a piece of candy, or the sip of a beveridge.", "I like this technique because it's so easy to remember! \"5-4-3-2-1\", like the points on your buddy Starry, hehe... I bet I can even help you with that lil' hole on your sub there, too! Have a starry day! <3"])
 metadata/_custom_type_script = "uid://cmfv4wy4eohe4"
 
 [sub_resource type="Resource" id="Resource_nbxii"]

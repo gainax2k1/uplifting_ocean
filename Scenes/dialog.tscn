@@ -16,45 +16,61 @@ transform = Transform2D(1, 0, 0, 1, 200, 100)
 [node name="DialogBox" type="Panel" parent="CanvasLayer" unique_id=351223558]
 unique_name_in_owner = true
 top_level = true
+custom_minimum_size = Vector2(700, 300)
+propagate_maximum_size = true
 anchors_preset = -1
 anchor_right = 0.754
 anchor_bottom = 0.41000003
-offset_right = -0.0960083
-offset_bottom = 0.11999512
+offset_left = 1.0
+offset_top = 1.0
+offset_right = 0.9039917
+offset_bottom = 1.1199951
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_irs7l")
 
 [node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/DialogBox" unique_id=41796269]
 layout_mode = 0
-offset_right = 769.0
-offset_bottom = 316.0
+offset_left = 3.0
+offset_top = 1.0
+offset_right = 773.0
+offset_bottom = 324.0
 theme_override_constants/margin_left = 15
 theme_override_constants/margin_top = 15
 theme_override_constants/margin_right = 15
 theme_override_constants/margin_bottom = 15
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/DialogBox/MarginContainer" unique_id=1599476473]
+propagate_maximum_size = false
 layout_mode = 2
 theme_override_constants/separation = 10
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/DialogBox/MarginContainer/HBoxContainer" unique_id=849777103]
+custom_minimum_size = Vector2(150, 0)
+custom_maximum_size = Vector2(200, -1)
+propagate_maximum_size = false
 layout_mode = 2
+size_flags_horizontal = 0
 alignment = 1
 
 [node name="NPCIcon" type="AnimatedSprite2D" parent="CanvasLayer/DialogBox/MarginContainer/HBoxContainer/VBoxContainer" unique_id=2111244090]
 unique_name_in_owner = true
-position = Vector2(79, 66)
+position = Vector2(68, 66)
 scale = Vector2(1.31, 1.31)
 sprite_frames = ExtResource("4_u40lh")
 animation = &"starfish-icon-ani"
+autoplay = "starfish-icon-ani"
 
 [node name="SpeakerLabel" type="Label" parent="CanvasLayer/DialogBox/MarginContainer/HBoxContainer/VBoxContainer" unique_id=1861606087]
 unique_name_in_owner = true
 layout_mode = 2
 text = "speaker label default"
+horizontal_alignment = 1
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="CanvasLayer/DialogBox/MarginContainer/HBoxContainer" unique_id=1006447713]
+custom_minimum_size = Vector2(500, 250)
+custom_maximum_size = Vector2(700, 500)
+propagate_maximum_size = false
 layout_mode = 2
 size_flags_horizontal = 3
 alignment = 1
@@ -64,16 +80,29 @@ unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
 text = "1. Take 5 long, deep breaths through your nose, and exhale through puckered lips."
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="ContinueButton" type="Button" parent="CanvasLayer/DialogBox/MarginContainer/HBoxContainer/VBoxContainer2" unique_id=769049672]
+[node name="ContinueButton" type="Button" parent="CanvasLayer/DialogBox/MarginContainer/HBoxContainer/VBoxContainer2/DialogText" unique_id=769049672]
 unique_name_in_owner = true
-layout_mode = 2
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.77500004
+anchor_right = 1.0
+anchor_bottom = 0.88100004
+offset_top = -0.07501221
+offset_bottom = -0.13302612
 text = "Continue"
 
-[node name="DoneButton" type="Button" parent="CanvasLayer/DialogBox/MarginContainer/HBoxContainer/VBoxContainer2" unique_id=94282263]
+[node name="DoneButton" type="Button" parent="CanvasLayer/DialogBox/MarginContainer/HBoxContainer/VBoxContainer2/DialogText" unique_id=94282263]
 unique_name_in_owner = true
-layout_mode = 2
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.89400005
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 0.0579834
 text = "Done!"
 
-[connection signal="pressed" from="CanvasLayer/DialogBox/MarginContainer/HBoxContainer/VBoxContainer2/ContinueButton" to="." method="_on_continue_button_pressed"]
-[connection signal="pressed" from="CanvasLayer/DialogBox/MarginContainer/HBoxContainer/VBoxContainer2/DoneButton" to="." method="_on_done_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/DialogBox/MarginContainer/HBoxContainer/VBoxContainer2/DialogText/ContinueButton" to="." method="_on_continue_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/DialogBox/MarginContainer/HBoxContainer/VBoxContainer2/DialogText/DoneButton" to="." method="_on_done_button_pressed"]

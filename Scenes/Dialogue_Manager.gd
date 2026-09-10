@@ -21,6 +21,7 @@ func _ready() -> void:
 func start_dialog(dialog:Dialogue):
 	current_dialog = dialog
 	current_dialog_max = len(current_dialog.Dialogs)-1
+	done_button.disabled = true
 	cont_button.disabled = false
 	if current_dialog_index == null:
 		current_dialog_index = 0
@@ -40,6 +41,7 @@ func _on_continue_button_pressed() -> void:
 	current_dialog_index += 1
 	if current_dialog_index + 1 > current_dialog_max:
 		cont_button.disabled = true
+		done_button.disabled = false
 	cont_dialog()
 	pass # Replace with function body.
 
