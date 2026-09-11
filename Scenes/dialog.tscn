@@ -35,10 +35,10 @@ offset_left = 3.0
 offset_top = 1.0
 offset_right = 773.0
 offset_bottom = 324.0
-theme_override_constants/margin_left = 15
-theme_override_constants/margin_top = 15
-theme_override_constants/margin_right = 15
-theme_override_constants/margin_bottom = 15
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 26
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 26
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/DialogBox/MarginContainer" unique_id=1599476473]
 propagate_maximum_size = false
@@ -64,6 +64,7 @@ autoplay = "starfish-icon-ani"
 [node name="SpeakerLabel" type="Label" parent="CanvasLayer/DialogBox/MarginContainer/HBoxContainer/VBoxContainer" unique_id=1861606087]
 unique_name_in_owner = true
 layout_mode = 2
+theme_override_font_sizes/font_size = 20
 text = "speaker label default"
 horizontal_alignment = 1
 
@@ -77,32 +78,26 @@ alignment = 1
 
 [node name="DialogText" type="RichTextLabel" parent="CanvasLayer/DialogBox/MarginContainer/HBoxContainer/VBoxContainer2" unique_id=996435471]
 unique_name_in_owner = true
+custom_maximum_size = Vector2(-1, 200)
 layout_mode = 2
 size_flags_vertical = 3
+theme_override_font_sizes/normal_font_size = 32
 text = "1. Take 5 long, deep breaths through your nose, and exhale through puckered lips."
 horizontal_alignment = 1
-vertical_alignment = 1
 
-[node name="ContinueButton" type="Button" parent="CanvasLayer/DialogBox/MarginContainer/HBoxContainer/VBoxContainer2/DialogText" unique_id=769049672]
+[node name="DoneButton" type="Button" parent="CanvasLayer/DialogBox/MarginContainer/HBoxContainer/VBoxContainer2" unique_id=94282263]
 unique_name_in_owner = true
-layout_mode = 1
-anchors_preset = -1
-anchor_top = 0.77500004
-anchor_right = 1.0
-anchor_bottom = 0.88100004
-offset_top = -0.07501221
-offset_bottom = -0.13302612
-text = "Continue"
-
-[node name="DoneButton" type="Button" parent="CanvasLayer/DialogBox/MarginContainer/HBoxContainer/VBoxContainer2/DialogText" unique_id=94282263]
-unique_name_in_owner = true
-layout_mode = 1
-anchors_preset = -1
-anchor_top = 0.89400005
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = 0.0579834
+layout_mode = 2
+theme_override_font_sizes/font_size = 22
 text = "Done!"
 
-[connection signal="pressed" from="CanvasLayer/DialogBox/MarginContainer/HBoxContainer/VBoxContainer2/DialogText/ContinueButton" to="." method="_on_continue_button_pressed"]
-[connection signal="pressed" from="CanvasLayer/DialogBox/MarginContainer/HBoxContainer/VBoxContainer2/DialogText/DoneButton" to="." method="_on_done_button_pressed"]
+[node name="ContinueButton" type="Button" parent="CanvasLayer/DialogBox/MarginContainer/HBoxContainer/VBoxContainer2" unique_id=769049672]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(190, 53)
+custom_maximum_size = Vector2(190, 56)
+layout_mode = 2
+theme_override_font_sizes/font_size = 22
+text = "Continue"
+
+[connection signal="pressed" from="CanvasLayer/DialogBox/MarginContainer/HBoxContainer/VBoxContainer2/DoneButton" to="." method="_on_done_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/DialogBox/MarginContainer/HBoxContainer/VBoxContainer2/ContinueButton" to="." method="_on_continue_button_pressed"]
