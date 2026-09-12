@@ -9,6 +9,9 @@ extends Node
 @onready var done_button = %DoneButton
 @onready var cont_button = %ContinueButton
 @onready var power_gauge = %Sub2D.get_node("%PowerGauge")
+@onready var sub_animaation = %Sub2D.get_node("%SubAnimation")
+@onready var bgmusic = %Menu.get_node("%BGMusic")
+@onready var victory = %Victory
 
 
 var current_NPC_index = 0
@@ -56,7 +59,9 @@ func _on_done_button_pressed() -> void:
 		%AskForHelp.visible = false
 		#CALL ENDING...????????????????????
 		power_gauge.play("power-ani")
-		
+		sub_animaation.play("raise")
+		bgmusic.stream_paused = true
+		victory.play(0.0)
 		
 	DialogBox.hide()
 

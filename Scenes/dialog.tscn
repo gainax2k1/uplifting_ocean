@@ -4,6 +4,9 @@
 [ext_resource type="Script" uid="uid://dchd2qkhl6wvi" path="res://Scripts/dialog_box.gd" id="1_irs7l"]
 [ext_resource type="Resource" uid="uid://clvvjay05gcvp" path="res://Scripts/full_script.tres" id="2_87kay"]
 [ext_resource type="SpriteFrames" uid="uid://dqsy32ah0tj0r" path="res://Assets/Sprites/icon_sprite_frames.tres" id="4_u40lh"]
+[ext_resource type="AudioStream" uid="uid://7pnk6w0xmyht" path="res://Assets/Audio/Click.ogg" id="5_ionbg"]
+[ext_resource type="Script" uid="uid://c2mtshrvy0e5u" path="res://Scenes/button_sound.gd" id="6_gl4vm"]
+[ext_resource type="AudioStream" uid="uid://doqd8liyj0cd4" path="res://Assets/Audio/Happy_short.ogg" id="7_ionbg"]
 
 [node name="Dialog" type="Node2D" unique_id=1563229591]
 script = ExtResource("1_edf0l")
@@ -99,5 +102,16 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 22
 text = "Continue"
 
+[node name="ButtonSound" type="AudioStreamPlayer2D" parent="CanvasLayer/DialogBox/MarginContainer/HBoxContainer/VBoxContainer2/ContinueButton" unique_id=1569253638]
+unique_name_in_owner = true
+stream = ExtResource("5_ionbg")
+script = ExtResource("6_gl4vm")
+
+[node name="Victory" type="AudioStreamPlayer2D" parent="." unique_id=679592075]
+unique_name_in_owner = true
+stream = ExtResource("7_ionbg")
+
+[connection signal="button_down" from="CanvasLayer/DialogBox/MarginContainer/HBoxContainer/VBoxContainer2/DoneButton" to="CanvasLayer/DialogBox/MarginContainer/HBoxContainer/VBoxContainer2/ContinueButton/ButtonSound" method="_on_done_button_button_down"]
 [connection signal="pressed" from="CanvasLayer/DialogBox/MarginContainer/HBoxContainer/VBoxContainer2/DoneButton" to="." method="_on_done_button_pressed"]
+[connection signal="button_down" from="CanvasLayer/DialogBox/MarginContainer/HBoxContainer/VBoxContainer2/ContinueButton" to="CanvasLayer/DialogBox/MarginContainer/HBoxContainer/VBoxContainer2/ContinueButton/ButtonSound" method="_on_continue_button_button_down"]
 [connection signal="pressed" from="CanvasLayer/DialogBox/MarginContainer/HBoxContainer/VBoxContainer2/ContinueButton" to="." method="_on_continue_button_pressed"]

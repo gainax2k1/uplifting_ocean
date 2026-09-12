@@ -6,21 +6,80 @@
 [ext_resource type="SpriteFrames" uid="uid://dinnbsnscnmar" path="res://Assets/Sprites/fuel-gauge-frames.tres" id="4_ue3ij"]
 [ext_resource type="Script" uid="uid://fsgr6l5tqfpf" path="res://Scenes/power_gauge.gd" id="5_je60v"]
 
+[sub_resource type="Animation" id="Animation_je60v"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SubAnimation/Submarine:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(258, -261)]
+}
+
+[sub_resource type="Animation" id="Animation_a07w3"]
+resource_name = "raise"
+length = 4.09
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SubAnimation/Submarine:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 4.09),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(290, 500), Vector2(795, -285)]
+}
+
+[sub_resource type="Animation" id="Animation_s8co7"]
+resource_name = "sink"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SubAnimation/Submarine:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.01, 3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(258, -261), Vector2(290, 500)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_wqqa5"]
+_data = {
+&"RESET": SubResource("Animation_je60v"),
+&"raise": SubResource("Animation_a07w3"),
+&"sink": SubResource("Animation_s8co7")
+}
+
 [node name="Sub2D" type="Node2D" unique_id=280165175]
 script = ExtResource("1_tq48s")
 
-[node name="Submarine" type="Sprite2D" parent="." unique_id=886378409]
-position = Vector2(286, 463)
+[node name="SubAnimation" type="AnimationPlayer" parent="." unique_id=1160017079]
+unique_name_in_owner = true
+libraries/ = SubResource("AnimationLibrary_wqqa5")
+
+[node name="Submarine" type="Sprite2D" parent="SubAnimation" unique_id=886378409]
+unique_name_in_owner = true
+position = Vector2(258, -261)
 texture = ExtResource("1_74qfh")
 
-[node name="Cat" type="AnimatedSprite2D" parent="Submarine" unique_id=1068311228]
+[node name="Cat" type="AnimatedSprite2D" parent="SubAnimation/Submarine" unique_id=1068311228]
 position = Vector2(35, -33)
 sprite_frames = ExtResource("3_tq48s")
 animation = &"cat-mood-happy"
 autoplay = "cat-mood-sad"
 frame_progress = 0.59952736
 
-[node name="PowerGauge" type="AnimatedSprite2D" parent="Submarine" unique_id=208710465]
+[node name="PowerGauge" type="AnimatedSprite2D" parent="SubAnimation/Submarine" unique_id=208710465]
 unique_name_in_owner = true
 position = Vector2(-105, 95)
 sprite_frames = ExtResource("4_ue3ij")

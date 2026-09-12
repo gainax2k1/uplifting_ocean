@@ -31,7 +31,7 @@ text = "Start
 
 [node name="Sound" type="CheckButton" parent="MarginContainer/VBoxContainer" unique_id=334602663]
 layout_mode = 2
-text = "Sound"
+text = "Mute Music"
 
 [node name="Exit" type="Button" parent="MarginContainer/VBoxContainer" unique_id=1966515340]
 layout_mode = 2
