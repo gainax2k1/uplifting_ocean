@@ -1,6 +1,8 @@
 [gd_scene format=3 uid="uid://bbvbfgsytow76"]
 
 [ext_resource type="Script" uid="uid://c08k8ei11c345" path="res://Scripts/menu.gd" id="1_1rerr"]
+[ext_resource type="AudioStream" uid="uid://cvqxcdexbc1bc" path="res://Assets/Audio/gloomy_bg.ogg" id="2_cayip"]
+[ext_resource type="Script" uid="uid://b2qa2me352r1r" path="res://Scenes/bgmusic.gd" id="3_158mb"]
 
 [node name="Menu" type="Control" unique_id=611884111]
 layout_mode = 3
@@ -36,6 +38,15 @@ layout_mode = 2
 text = "Exit
 "
 
+[node name="BGMusic" type="AudioStreamPlayer2D" parent="." unique_id=1347268172]
+unique_name_in_owner = true
+position = Vector2(-24, -26)
+stream = ExtResource("2_cayip")
+autoplay = true
+playback_type = 1
+parameters/looping = true
+script = ExtResource("3_158mb")
+
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Play" to="." method="_on_play_pressed"]
-[connection signal="toggled" from="MarginContainer/VBoxContainer/Sound" to="." method="_on_sound_toggled"]
+[connection signal="toggled" from="MarginContainer/VBoxContainer/Sound" to="BGMusic" method="_on_sound_toggled"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Exit" to="." method="_on_exit_pressed"]
