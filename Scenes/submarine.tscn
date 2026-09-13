@@ -188,6 +188,18 @@ tracks/3/keys = {
 "update": 0,
 "values": [Vector2(1485, -2)]
 }
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("FishAnimation/Fish/Eel:flip_h")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="Animation" id="Animation_2oy7c"]
 resource_name = "eel_ani_1"
@@ -235,6 +247,33 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [Vector2(-86, 160), Vector2(-86, 160), Vector2(-668, -57)]
+}
+
+[sub_resource type="Animation" id="Animation_xo8fq"]
+resource_name = "eel_ani_4"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("FishAnimation/Fish/Eel:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.033333335, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-668, -57), Vector2(-40, 17)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("FishAnimation/Fish/Eel:flip_h")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
 
 [sub_resource type="Animation" id="Animation_udrvb"]
@@ -331,6 +370,7 @@ _data = {
 &"eel_ani_1": SubResource("Animation_2oy7c"),
 &"eel_ani_2": SubResource("Animation_7axes"),
 &"eel_ani_3": SubResource("Animation_lswuw"),
+&"eel_ani_4": SubResource("Animation_xo8fq"),
 &"puff_ani_1": SubResource("Animation_udrvb"),
 &"puff_ani_2": SubResource("Animation_kop6n"),
 &"star_ani_1": SubResource("Animation_48gdx"),
@@ -426,5 +466,5 @@ autoplay = "puffer-ani"
 frame = 1
 script = ExtResource("13_udrvb")
 
-[connection signal="animation_finished" from="SubAnimation" to="." method="_on_sub_animation_animation_finished"]
+[connection signal="animation_finished" from="SubAnimation" to="FishAnimation" method="_on_sub_animation_animation_finished"]
 [connection signal="animation_finished" from="FishAnimation" to="FishAnimation" method="_on_animation_finished"]

@@ -9,16 +9,12 @@ extends Node
 @onready var SpeakerLabel = %SpeakerLabel
 @onready var done_button = %DoneButton
 @onready var cont_button = %ContinueButton
-#@onready var power_gauge  = %Sub2D.get_node("%PowerGauge")
 @onready var sub_animation = %Sub2D.get_node("%SubAnimation")
 @onready var prop_animation = %prop_anim
 @onready var FishAnimation = %Sub2D.get_node("%FishAnimation")
 @onready var bgmusic = %Menu.get_node("%BGMusic")
 @onready var ask_for_help = %Sub2D.get_node("%AskForHelp")
-@onready var victory = %Victory
-@export var Caller: Node
-
-#@onready var damage_sprite = %Sub2D.get_node("%Damage")
+@onready var victory = %Victory 
 
 
 
@@ -39,18 +35,13 @@ func trans_switch(trans_name:String) -> void:
 			FishAnimation.play("star_ani_2")
 			ask_for_help.set_text("Well, looks like they fixed the hole \n
 				but I'm still feeling stressed out...")
-			
-			#FishAnimation.play("eel_ani_1")
 			return
 			
 		"Puffer":
 			FishAnimation.play("puff_ani_2")
 			
-			
-			
 		"Eel":
 			ask_for_help.visible = false
-			#%PowerGauge.Fill_gauge()
 			FishAnimation.play("eel_ani_2")
 			
 			return
@@ -98,19 +89,17 @@ func _on_continue_button_pressed() -> void:
 		cont_button.disabled = true
 		done_button.disabled = false
 	cont_dialog()
-	pass # Replace with function body.
-
+	pass
+	
 func _on_done_button_pressed() -> void:
 	current_dialog_index = 0
 	if (current_NPC_index + 1) < len(full_script.Dialogues):
 		trans_switch(current_dialog.NPC_Name)
 		#when increment, call transition (finish starfish, finish puffer, etc...)
 		current_NPC_index += 1
-		#ask_for_help.show()
 	else:
 		FishAnimation.play("puff_ani_2")
 		pass
-		#trans_switch("Ending")
 		
 	DialogBox.hide()
 

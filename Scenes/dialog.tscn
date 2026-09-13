@@ -7,6 +7,7 @@
 [ext_resource type="AudioStream" uid="uid://7pnk6w0xmyht" path="res://Assets/Audio/Click.ogg" id="5_ionbg"]
 [ext_resource type="Script" uid="uid://c2mtshrvy0e5u" path="res://Scenes/button_sound.gd" id="6_gl4vm"]
 [ext_resource type="AudioStream" uid="uid://doqd8liyj0cd4" path="res://Assets/Audio/Happy_short.ogg" id="7_ionbg"]
+[ext_resource type="Texture2D" uid="uid://6icy5dtum7cc" path="res://Assets/Sprites/icon-border.png" id="8_gl4vm"]
 
 [node name="Dialog" type="Node2D" unique_id=1563229591]
 script = ExtResource("1_edf0l")
@@ -49,8 +50,8 @@ layout_mode = 2
 theme_override_constants/separation = 10
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/DialogBox/MarginContainer/HBoxContainer" unique_id=849777103]
-custom_minimum_size = Vector2(150, 0)
-custom_maximum_size = Vector2(200, -1)
+custom_minimum_size = Vector2(200, 300)
+custom_maximum_size = Vector2(200, 300)
 propagate_maximum_size = false
 layout_mode = 2
 size_flags_horizontal = 0
@@ -58,7 +59,7 @@ alignment = 1
 
 [node name="NPCIcon" type="AnimatedSprite2D" parent="CanvasLayer/DialogBox/MarginContainer/HBoxContainer/VBoxContainer" unique_id=2111244090]
 unique_name_in_owner = true
-position = Vector2(68, 66)
+position = Vector2(67, 66)
 scale = Vector2(1.31, 1.31)
 sprite_frames = ExtResource("4_u40lh")
 animation = &"starfish-icon-ani"
@@ -66,10 +67,13 @@ autoplay = "starfish-icon-ani"
 
 [node name="SpeakerLabel" type="Label" parent="CanvasLayer/DialogBox/MarginContainer/HBoxContainer/VBoxContainer" unique_id=1861606087]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(120, 100)
+custom_maximum_size = Vector2(175, 100)
 layout_mode = 2
 theme_override_font_sizes/font_size = 20
 text = "speaker label default"
 horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="CanvasLayer/DialogBox/MarginContainer/HBoxContainer" unique_id=1006447713]
 custom_minimum_size = Vector2(500, 250)
@@ -84,7 +88,7 @@ unique_name_in_owner = true
 custom_maximum_size = Vector2(-1, 200)
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_font_sizes/normal_font_size = 32
+theme_override_font_sizes/normal_font_size = 22
 text = "1. Take 5 long, deep breaths through your nose, and exhale through puckered lips."
 horizontal_alignment = 1
 
@@ -113,6 +117,11 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 22
 text = "Done!"
 icon_alignment = 2
+
+[node name="IconBorder" type="Sprite2D" parent="CanvasLayer/DialogBox" unique_id=2071790715]
+position = Vector2(90, 90.5)
+scale = Vector2(1.3090909, 1.3545455)
+texture = ExtResource("8_gl4vm")
 
 [node name="Victory" type="AudioStreamPlayer2D" parent="." unique_id=679592075]
 unique_name_in_owner = true
