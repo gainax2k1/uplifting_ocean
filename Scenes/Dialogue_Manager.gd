@@ -60,6 +60,7 @@ func _on_done_button_pressed() -> void:
 		#CALL ENDING...????????????????????
 		power_gauge.play("power-ani")
 		sub_animaation.play("raise")
+		#animate prop, show prop
 		bgmusic.stream_paused = true
 		victory.play(0.0)
 		

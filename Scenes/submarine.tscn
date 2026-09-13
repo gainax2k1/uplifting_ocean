@@ -5,6 +5,8 @@
 [ext_resource type="SpriteFrames" uid="uid://b5mppdtkwflr5" path="res://Assets/Sprites/cat_frames.tres" id="3_tq48s"]
 [ext_resource type="SpriteFrames" uid="uid://dinnbsnscnmar" path="res://Assets/Sprites/fuel-gauge-frames.tres" id="4_ue3ij"]
 [ext_resource type="Script" uid="uid://fsgr6l5tqfpf" path="res://Scenes/power_gauge.gd" id="5_je60v"]
+[ext_resource type="Texture2D" uid="uid://c1tl56wr2qnt1" path="res://Assets/Sprites/damage.png" id="6_a07w3"]
+[ext_resource type="Texture2D" uid="uid://cfhyhuh243p5g" path="res://Assets/Sprites/propeller-ani-Sheet.png" id="7_s8co7"]
 
 [sub_resource type="Animation" id="Animation_je60v"]
 length = 0.001
@@ -60,6 +62,28 @@ _data = {
 &"sink": SubResource("Animation_s8co7")
 }
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_wqqa5"]
+atlas = ExtResource("7_s8co7")
+region = Rect2(0, 0, 64, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_45lfp"]
+atlas = ExtResource("7_s8co7")
+region = Rect2(64, 0, 64, 192)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_e78ct"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wqqa5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_45lfp")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
 [node name="Sub2D" type="Node2D" unique_id=280165175]
 script = ExtResource("1_tq48s")
 
@@ -85,3 +109,17 @@ position = Vector2(-105, 95)
 sprite_frames = ExtResource("4_ue3ij")
 animation = &"power-ani"
 script = ExtResource("5_je60v")
+
+[node name="Damage" type="Sprite2D" parent="SubAnimation/Submarine" unique_id=1689370004]
+position = Vector2(111, 94)
+texture = ExtResource("6_a07w3")
+
+[node name="prop_anim" type="AnimatedSprite2D" parent="SubAnimation/Submarine" unique_id=1788877124]
+unique_name_in_owner = true
+visible = false
+z_index = 1
+position = Vector2(-255, 104)
+sprite_frames = SubResource("SpriteFrames_e78ct")
+autoplay = "default"
+frame = 1
+frame_progress = 0.2487201

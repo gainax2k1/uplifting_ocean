@@ -53,10 +53,10 @@ position = Vector2(-4, -86)
 [node name="AskForHelp" type="Button" parent="Sub2D" unique_id=1949216820]
 unique_name_in_owner = true
 z_index = 6
-offset_left = 263.0
-offset_top = 623.0
-offset_right = 399.0
-offset_bottom = 674.0
+offset_left = 288.0
+offset_top = 665.0
+offset_right = 424.0
+offset_bottom = 716.0
 text = "Ask for help!"
 
 [node name="Background" type="TileMapLayer" parent="." unique_id=1007385587]

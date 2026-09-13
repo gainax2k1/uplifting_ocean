@@ -88,13 +88,11 @@ theme_override_font_sizes/normal_font_size = 32
 text = "1. Take 5 long, deep breaths through your nose, and exhale through puckered lips."
 horizontal_alignment = 1
 
-[node name="DoneButton" type="Button" parent="CanvasLayer/DialogBox/MarginContainer/HBoxContainer/VBoxContainer2" unique_id=94282263]
-unique_name_in_owner = true
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/DialogBox/MarginContainer/HBoxContainer/VBoxContainer2" unique_id=1985870208]
 layout_mode = 2
-theme_override_font_sizes/font_size = 22
-text = "Done!"
+size_flags_horizontal = 4
 
-[node name="ContinueButton" type="Button" parent="CanvasLayer/DialogBox/MarginContainer/HBoxContainer/VBoxContainer2" unique_id=769049672]
+[node name="ContinueButton" type="Button" parent="CanvasLayer/DialogBox/MarginContainer/HBoxContainer/VBoxContainer2/HBoxContainer" unique_id=769049672]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(190, 53)
 custom_maximum_size = Vector2(190, 56)
@@ -102,16 +100,25 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 22
 text = "Continue"
 
-[node name="ButtonSound" type="AudioStreamPlayer2D" parent="CanvasLayer/DialogBox/MarginContainer/HBoxContainer/VBoxContainer2/ContinueButton" unique_id=1569253638]
+[node name="ButtonSound" type="AudioStreamPlayer2D" parent="CanvasLayer/DialogBox/MarginContainer/HBoxContainer/VBoxContainer2/HBoxContainer/ContinueButton" unique_id=1569253638]
 unique_name_in_owner = true
 stream = ExtResource("5_ionbg")
 script = ExtResource("6_gl4vm")
+
+[node name="DoneButton" type="Button" parent="CanvasLayer/DialogBox/MarginContainer/HBoxContainer/VBoxContainer2/HBoxContainer" unique_id=94282263]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(100, 50)
+custom_maximum_size = Vector2(100, 50)
+layout_mode = 2
+theme_override_font_sizes/font_size = 22
+text = "Done!"
+icon_alignment = 2
 
 [node name="Victory" type="AudioStreamPlayer2D" parent="." unique_id=679592075]
 unique_name_in_owner = true
 stream = ExtResource("7_ionbg")
 
-[connection signal="button_down" from="CanvasLayer/DialogBox/MarginContainer/HBoxContainer/VBoxContainer2/DoneButton" to="CanvasLayer/DialogBox/MarginContainer/HBoxContainer/VBoxContainer2/ContinueButton/ButtonSound" method="_on_done_button_button_down"]
-[connection signal="pressed" from="CanvasLayer/DialogBox/MarginContainer/HBoxContainer/VBoxContainer2/DoneButton" to="." method="_on_done_button_pressed"]
-[connection signal="button_down" from="CanvasLayer/DialogBox/MarginContainer/HBoxContainer/VBoxContainer2/ContinueButton" to="CanvasLayer/DialogBox/MarginContainer/HBoxContainer/VBoxContainer2/ContinueButton/ButtonSound" method="_on_continue_button_button_down"]
-[connection signal="pressed" from="CanvasLayer/DialogBox/MarginContainer/HBoxContainer/VBoxContainer2/ContinueButton" to="." method="_on_continue_button_pressed"]
+[connection signal="button_down" from="CanvasLayer/DialogBox/MarginContainer/HBoxContainer/VBoxContainer2/HBoxContainer/ContinueButton" to="CanvasLayer/DialogBox/MarginContainer/HBoxContainer/VBoxContainer2/HBoxContainer/ContinueButton/ButtonSound" method="_on_continue_button_button_down"]
+[connection signal="pressed" from="CanvasLayer/DialogBox/MarginContainer/HBoxContainer/VBoxContainer2/HBoxContainer/ContinueButton" to="." method="_on_continue_button_pressed"]
+[connection signal="button_down" from="CanvasLayer/DialogBox/MarginContainer/HBoxContainer/VBoxContainer2/HBoxContainer/DoneButton" to="CanvasLayer/DialogBox/MarginContainer/HBoxContainer/VBoxContainer2/HBoxContainer/ContinueButton/ButtonSound" method="_on_done_button_button_down"]
+[connection signal="pressed" from="CanvasLayer/DialogBox/MarginContainer/HBoxContainer/VBoxContainer2/HBoxContainer/DoneButton" to="." method="_on_done_button_pressed"]
