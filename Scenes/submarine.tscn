@@ -110,15 +110,6 @@ _data = {
 &"star_ani_2": SubResource("Animation_1qcwb")
 }
 
-[sub_resource type="GDScript" id="GDScript_wcbqk"]
-script/source = "extends AnimationPlayer
-
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	#%SubAnimation.play(\"sink\")
-	pass # Replace with function body.
-"
-
 [sub_resource type="Animation" id="Animation_wcbqk"]
 length = 0.001
 tracks/0/type = "value"
@@ -333,11 +324,10 @@ unique_name_in_owner = true
 reset_on_save = false
 libraries/ = SubResource("AnimationLibrary_wqqa5")
 playback_auto_capture = false
-script = SubResource("GDScript_wcbqk")
 
 [node name="Submarine" parent="SubAnimation" unique_id=1801688219 instance=ExtResource("2_45lfp")]
 unique_name_in_owner = true
-position = Vector2(290, 500)
+position = Vector2(258, -261)
 
 [node name="FishAnimation" type="AnimationPlayer" parent="." unique_id=1294757149]
 unique_name_in_owner = true
@@ -376,4 +366,5 @@ autoplay = "puffer-ani"
 frame = 1
 script = ExtResource("13_udrvb")
 
+[connection signal="animation_finished" from="SubAnimation" to="." method="_on_sub_animation_animation_finished"]
 [connection signal="animation_finished" from="FishAnimation" to="FishAnimation" method="_on_animation_finished"]

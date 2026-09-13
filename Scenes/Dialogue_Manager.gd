@@ -15,7 +15,7 @@ extends Node
 @onready var bgmusic = %Menu.get_node("%BGMusic")
 @onready var ask_for_help = %Sub2D.get_node("%AskForHelp")
 @onready var victory = %Victory
-@onready var damage_sprite = %Sub2D.get_node("%Damage")
+#@onready var damage_sprite = %Sub2D.get_node("%Damage")
 
 
 
@@ -27,16 +27,9 @@ var current_dialog_max = 0
 func _ready() -> void:
 	DialogBox.hide()
 	ask_for_help.visible = false
-	start_game()
-	pass
-
-func start_game() -> void:
-	FishAnimation.play("star_ani_1 ")
-	
-	pass
+	FishAnimation.play("star_ani_1")
 	
 func trans_switch(trans_name:String) -> void:
-	
 	match trans_name:
 		"Starfish":
 			ask_for_help.visible = false
@@ -44,7 +37,7 @@ func trans_switch(trans_name:String) -> void:
 			ask_for_help.set_text("Well, looks like they fixed the hole \n
 				but I'm still feeling stressed out...")
 			
-			FishAnimation.play("eel_ani_1")
+			#FishAnimation.play("eel_ani_1")
 			return
 			
 		"Puffer":

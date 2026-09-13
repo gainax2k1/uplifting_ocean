@@ -1,6 +1,5 @@
 extends AnimationPlayer
-
-@onready var damage_sprite = %Damage
+@onready var damage: Sprite2D = %Submarine.get_node("%Damage")
 @onready var ask_for_help = $"../AskForHelp"
 @onready var FishAnimation = %FishAnimation
 @onready var Starfish = %Starfish
@@ -19,8 +18,8 @@ func _on_animation_finished(anim_name: StringName) -> void:
 		
 	if anim_name == "star_ani_2":
 		Starfish.visible = false
-		damage_sprite.texture = load("res://Assets/Sprites/starfish.png")
-		#FishAnimation.play("eel_ani_1")
+		damage.texture = load("res://Assets/Sprites/starfish.png")
+		FishAnimation.play("eel_ani_1")
 		return
 		
 	if anim_name == "eel_ani_1":
