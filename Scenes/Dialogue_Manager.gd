@@ -1,6 +1,7 @@
 extends Node
 
-@export var full_script : FullScript
+
+@export var full_script: FullScript
 
 @onready var DialogBox = %DialogBox
 @onready var NPC_Icon = %NPCIcon
@@ -8,20 +9,22 @@ extends Node
 @onready var SpeakerLabel = %SpeakerLabel
 @onready var done_button = %DoneButton
 @onready var cont_button = %ContinueButton
-@onready var power_gauge = %Sub2D.get_node("%PowerGauge")
+#@onready var power_gauge  = %Sub2D.get_node("%PowerGauge")
 @onready var sub_animation = %Sub2D.get_node("%SubAnimation")
-@onready var prop_animation = %Sub2D.get_node("%prop_anim")
+@onready var prop_animation = %prop_anim
 @onready var FishAnimation = %Sub2D.get_node("%FishAnimation")
 @onready var bgmusic = %Menu.get_node("%BGMusic")
 @onready var ask_for_help = %Sub2D.get_node("%AskForHelp")
 @onready var victory = %Victory
+@export var Caller: Node
+
 #@onready var damage_sprite = %Sub2D.get_node("%Damage")
 
 
 
 var current_NPC_index = 0
 var current_dialog_index = 0
-var current_dialog = null
+var current_dialog = 0
 var current_dialog_max = 0
 
 func _ready() -> void:
@@ -47,6 +50,7 @@ func trans_switch(trans_name:String) -> void:
 			
 		"Eel":
 			ask_for_help.visible = false
+			#%PowerGauge.Fill_gauge()
 			FishAnimation.play("eel_ani_2")
 			
 			return
@@ -55,9 +59,9 @@ func trans_switch(trans_name:String) -> void:
 			ask_for_help.disabled = true
 			ask_for_help.visible = false
 			#CALL ENDING...????????????????????
-			power_gauge.play("power-ani")
+			#power_gauge.play("power-ani")
 			sub_animation.play("raise")
-			prop_animation.visible = true
+			#prop_animation.visible = true
 			#animate prop, show prop
 			bgmusic.stream_paused = true
 			victory.play(0.0)
@@ -68,11 +72,6 @@ func trans_switch(trans_name:String) -> void:
 	
 	return
 	
-
-
-func start_puffer() -> void:
-	pass
-
 
 func start_dialog(dialog:Dialogue):
 	current_dialog = dialog
@@ -107,9 +106,11 @@ func _on_done_button_pressed() -> void:
 		trans_switch(current_dialog.NPC_Name)
 		#when increment, call transition (finish starfish, finish puffer, etc...)
 		current_NPC_index += 1
-		ask_for_help.show()
+		#ask_for_help.show()
 	else:
-		trans_switch("Ending")
+		FishAnimation.play("puff_ani_2")
+		pass
+		#trans_switch("Ending")
 		
 	DialogBox.hide()
 

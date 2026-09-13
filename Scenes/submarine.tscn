@@ -15,7 +15,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("SubAnimation/Submarine:position")
+tracks/0/path = NodePath("SubAnimation/Subby:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -43,7 +43,7 @@ length = 4.09
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("SubAnimation/Submarine:position")
+tracks/0/path = NodePath("SubAnimation/Subby:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -59,7 +59,7 @@ length = 3.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("SubAnimation/Submarine:position")
+tracks/0/path = NodePath("SubAnimation/Subby:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -325,23 +325,24 @@ reset_on_save = false
 libraries/ = SubResource("AnimationLibrary_wqqa5")
 playback_auto_capture = false
 
-[node name="Submarine" parent="SubAnimation" unique_id=1801688219 instance=ExtResource("2_45lfp")]
+[node name="Subby" parent="SubAnimation" unique_id=1801688219 instance=ExtResource("2_45lfp")]
 unique_name_in_owner = true
 position = Vector2(258, -261)
 
-[node name="FishAnimation" type="AnimationPlayer" parent="." unique_id=1294757149]
+[node name="FishAnimation" type="AnimationPlayer" parent="." unique_id=1294757149 node_paths=PackedStringArray("subby")]
 unique_name_in_owner = true
 reset_on_save = false
 libraries/ = SubResource("AnimationLibrary_fq4r3")
 playback_auto_capture = false
 script = ExtResource("9_48gdx")
+subby = NodePath("../SubAnimation/Subby")
 
 [node name="Fish" type="TileMapLayer" parent="FishAnimation" unique_id=389189588]
 position = Vector2(290, 500)
 
 [node name="Starfish" type="Sprite2D" parent="FishAnimation/Fish" unique_id=303350784]
 unique_name_in_owner = true
-position = Vector2(1457, 163)
+position = Vector2(1575, 618)
 rotation = -6.2831855
 texture = ExtResource("8_6jape")
 script = ExtResource("9_1qcwb")
