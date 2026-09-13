@@ -3,15 +3,21 @@ extends Node
 @export var full_script : FullScript
 
 @onready var DialogBox = %DialogBox
+@onready var cat = %Sub2D.get_node("%Cat")
 @onready var NPC_Icon = %NPCIcon
 @onready var DialogText = %DialogText
 @onready var SpeakerLabel = %SpeakerLabel
 @onready var done_button = %DoneButton
 @onready var cont_button = %ContinueButton
 @onready var power_gauge = %Sub2D.get_node("%PowerGauge")
-@onready var sub_animaation = %Sub2D.get_node("%SubAnimation")
+@onready var sub_animation = %Sub2D.get_node("%SubAnimation")
+@onready var prop_animation = %Sub2D.get_node("%prop_anim")
+@onready var fish_animation = %Sub2D.get_node("%FishAnimation")
 @onready var bgmusic = %Menu.get_node("%BGMusic")
+@onready var ask_for_help = %Sub2D.get_node("%AskForHelp")
 @onready var victory = %Victory
+@onready var damage_sprite = %Sub2D.get_node("%Damage")
+
 
 
 var current_NPC_index = 0
@@ -21,9 +27,66 @@ var current_dialog_max = 0
 
 func _ready() -> void:
 	DialogBox.hide()
+	ask_for_help.visible = false
+	start_game()
+	pass
+
+func start_game() -> void:
+	fish_animation.play("star_ani")
 	pass
 	
+func trans_switch(trans_name:String) -> void:
+	
+	match trans_name:
+		"Starfish":
+			ask_for_help.visible = false
+			cat.animation = "cat-mood-medium"
+			fish_animation.play("star_ani_2")
+			fish_animation.play("stop") 
+			ask_for_help.set_text("Well, looks like they fixed the hole \n
+				but I'm still feeling stressed out... \n
+				I could use some more help...")
+			return
+			
+		"Puffer":
+			
+			cat.animation = "cat-mood-medium"
+			fish_animation.play("puff_ani_2")
+			fish_animation.play("stop")
+			
+			return
+			
+		"Eel":
+			ask_for_help.set_text("Ok, they recharged the power. \n
+				I still feel really down and could use a lift. \n
+				I still need help...")
+			fish_animation.play("puff_ani_1")
+			power_gauge.play("power-ani")
+			return
+	
+		"Ending":
+			cat.animation =  "cat-mood-happy"
+			ask_for_help.disabled = true
+			ask_for_help.visible = false
+			#CALL ENDING...????????????????????
+			sub_animation.play("raise")
+			prop_animation.visible = true
+			#animate prop, show prop
+			bgmusic.stream_paused = true
+			victory.play(0.0)
+			
+			
+		_: #wildcard
+			return
+	
+	return
+	
+func start_puffer() -> void:
+	pass
+
+
 func start_dialog(dialog:Dialogue):
+	cat.animation = "cat-mood-sad"
 	current_dialog = dialog
 	current_dialog_max = len(current_dialog.Dialogs)-1
 	done_button.disabled = true
@@ -37,7 +100,7 @@ func start_dialog(dialog:Dialogue):
 	DialogText.text = current_dialog.Dialogs[current_dialog_index]
 
 func cont_dialog():
-	if current_dialog_index> current_dialog_max:
+	if current_dialog_index > current_dialog_max:
 		return
 	DialogText.text = current_dialog.Dialogs[current_dialog_index]
 	pass
@@ -53,19 +116,16 @@ func _on_continue_button_pressed() -> void:
 func _on_done_button_pressed() -> void:
 	current_dialog_index = 0
 	if (current_NPC_index + 1) < len(full_script.Dialogues):
+		trans_switch(current_dialog.NPC_Name)
+		#when increment, call transition (finish starfish, finish puffer, etc...)
 		current_NPC_index += 1
+		ask_for_help.show()
 	else:
-		%AskForHelp.disabled = true
-		%AskForHelp.visible = false
-		#CALL ENDING...????????????????????
-		power_gauge.play("power-ani")
-		sub_animaation.play("raise")
-		#animate prop, show prop
-		bgmusic.stream_paused = true
-		victory.play(0.0)
+		trans_switch("Ending")
 		
 	DialogBox.hide()
 
 func _on_ask_for_help_pressed() -> void:
+	ask_for_help.hide()
 	start_dialog(full_script.Dialogues[current_NPC_index])
 	pass # Replace with function body.

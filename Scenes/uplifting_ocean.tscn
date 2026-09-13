@@ -3,18 +3,13 @@
 [ext_resource type="PackedScene" uid="uid://cq154mcxmfga3" path="res://Scenes/submarine.tscn" id="1_6lusw"]
 [ext_resource type="Texture2D" uid="uid://bj06ofjx6s0ao" path="res://Assets/Sprites/sand.png" id="1_vlvd4"]
 [ext_resource type="PackedScene" uid="uid://bksbg0431c11j" path="res://Scenes/dialog.tscn" id="1_w7ias"]
+[ext_resource type="Texture2D" uid="uid://dg7jngc28sal5" path="res://Assets/Sprites/thought_bubble.png" id="2_red3x"]
 [ext_resource type="Texture2D" uid="uid://b2qfcxg45gvso" path="res://Assets/Sprites/sand2.png" id="2_t48j5"]
 [ext_resource type="PackedScene" uid="uid://cys8kbly4vlqy" path="res://Assets/Sprites/seaweed_animated.tscn" id="3_c280b"]
 [ext_resource type="Texture2D" uid="uid://bb0wtaa4h6diu" path="res://Assets/Sprites/rock.png" id="4_lux2x"]
 [ext_resource type="Texture2D" uid="uid://dtpuyd81u1tum" path="res://Assets/Sprites/rock2.png" id="5_4tqgs"]
 [ext_resource type="Texture2D" uid="uid://dhbq8hbjo5gf4" path="res://Assets/Sprites/coral.png" id="6_fwpsv"]
-[ext_resource type="Texture2D" uid="uid://cy1lbchsg4i61" path="res://Assets/Sprites/starfish.png" id="8_red3x"]
-[ext_resource type="Script" uid="uid://13yfh64w80ll" path="res://Scenes/eel.gd" id="11_51c17"]
-[ext_resource type="Script" uid="uid://bl3j6uns3li4" path="res://Scripts/starfish_rotate.gd" id="11_w7ias"]
-[ext_resource type="SpriteFrames" uid="uid://bts3ku3bh2maa" path="res://Assets/Sprites/eel-shock.tres" id="12_51c17"]
-[ext_resource type="Script" uid="uid://bhlcfdpmjju4i" path="res://Scenes/puffer_ani.gd" id="12_w7ias"]
 [ext_resource type="PackedScene" uid="uid://bbvbfgsytow76" path="res://Scenes/menu.tscn" id="13_24i8k"]
-[ext_resource type="SpriteFrames" uid="uid://bg1yqadue7ki0" path="res://Assets/Sprites/puffer-puff.tres" id="13_51c17"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_t48j5"]
 texture = ExtResource("1_vlvd4")
@@ -53,11 +48,19 @@ position = Vector2(-4, -86)
 [node name="AskForHelp" type="Button" parent="Sub2D" unique_id=1949216820]
 unique_name_in_owner = true
 z_index = 6
-offset_left = 288.0
-offset_top = 665.0
-offset_right = 424.0
-offset_bottom = 716.0
-text = "Ask for help!"
+offset_left = 250.0
+offset_top = 277.0
+offset_right = 908.6667
+offset_bottom = 524.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 22
+text = "Out of power, the sub is damaged
+and I am anxious and overwhelmed.
+I should ask for help."
+icon = ExtResource("2_red3x")
+flat = true
+icon_alignment = 1
+expand_icon = true
 
 [node name="Background" type="TileMapLayer" parent="." unique_id=1007385587]
 z_index = -1
@@ -241,30 +244,6 @@ texture = ExtResource("6_fwpsv")
 [node name="Coral20" type="Sprite2D" parent="Background/coral" unique_id=22357498]
 position = Vector2(1042, 723)
 texture = ExtResource("6_fwpsv")
-
-[node name="Fish" type="TileMapLayer" parent="." unique_id=1480165960]
-
-[node name="Starfish" type="Sprite2D" parent="Fish" unique_id=152542600]
-unique_name_in_owner = true
-position = Vector2(589, 578)
-rotation = -6.2831855
-texture = ExtResource("8_red3x")
-script = ExtResource("11_w7ias")
-
-[node name="Eel" type="AnimatedSprite2D" parent="Fish" unique_id=817692604]
-unique_name_in_owner = true
-position = Vector2(705, 493)
-sprite_frames = ExtResource("12_51c17")
-animation = &"eel-shock"
-frame_progress = 0.43603608
-script = ExtResource("11_51c17")
-
-[node name="Puffer" type="AnimatedSprite2D" parent="Fish" unique_id=1323350211]
-unique_name_in_owner = true
-position = Vector2(559, 463)
-sprite_frames = ExtResource("13_51c17")
-animation = &"puffer-ani"
-script = ExtResource("12_w7ias")
 
 [node name="Menu" parent="." unique_id=611884111 instance=ExtResource("13_24i8k")]
 unique_name_in_owner = true

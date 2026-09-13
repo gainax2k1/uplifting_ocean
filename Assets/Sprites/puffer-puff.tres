@@ -19,7 +19,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_oy3ot")
 }],
-"loop": 1,
+"loop": 0,
 "name": &"puffer-ani",
 "speed": 5.0
 }]
