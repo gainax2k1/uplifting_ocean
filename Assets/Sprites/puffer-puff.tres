@@ -13,13 +13,13 @@ region = Rect2(64, 0, 64, 64)
 [resource]
 animations = [{
 "frames": [{
-"duration": 1.0,
+"duration": 6.0,
 "texture": SubResource("AtlasTexture_fiams")
 }, {
-"duration": 1.0,
+"duration": 7.0,
 "texture": SubResource("AtlasTexture_oy3ot")
 }],
-"loop": 0,
+"loop": 1,
 "name": &"puffer-ani",
 "speed": 5.0
 }]

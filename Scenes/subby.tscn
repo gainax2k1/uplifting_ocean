@@ -1,0 +1,73 @@
+[gd_scene format=3 uid="uid://cwx537we8vip0"]
+
+[ext_resource type="Texture2D" uid="uid://crfxgt5kskg30" path="res://Assets/Sprites/submarine.png" id="1_dviiw"]
+[ext_resource type="SpriteFrames" uid="uid://b5mppdtkwflr5" path="res://Assets/Sprites/cat_frames.tres" id="2_3oroe"]
+[ext_resource type="SpriteFrames" uid="uid://dinnbsnscnmar" path="res://Assets/Sprites/fuel-gauge-frames.tres" id="3_rye7x"]
+[ext_resource type="Script" uid="uid://fsgr6l5tqfpf" path="res://Scenes/power_gauge.gd" id="4_jiyw7"]
+[ext_resource type="Texture2D" uid="uid://c1tl56wr2qnt1" path="res://Assets/Sprites/damage.png" id="5_bo6rb"]
+[ext_resource type="Texture2D" uid="uid://cfhyhuh243p5g" path="res://Assets/Sprites/propeller-ani-Sheet.png" id="6_rtqjo"]
+[ext_resource type="Texture2D" uid="uid://c4gjl1l7bh3t6" path="res://Assets/Sprites/puffer-big.png" id="7_l58pu"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wqqa5"]
+atlas = ExtResource("6_rtqjo")
+region = Rect2(0, 0, 64, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_45lfp"]
+atlas = ExtResource("6_rtqjo")
+region = Rect2(64, 0, 64, 192)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_e78ct"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wqqa5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_45lfp")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Submarine" type="Sprite2D" unique_id=1801688219]
+texture = ExtResource("1_dviiw")
+
+[node name="PufferBig" type="Sprite2D" parent="." unique_id=347605177]
+unique_name_in_owner = true
+auto_translate_mode = 1
+visible = false
+top_level = true
+z_index = 2
+position = Vector2(72, 188)
+texture = ExtResource("7_l58pu")
+
+[node name="Cat" type="AnimatedSprite2D" parent="." unique_id=616590842]
+unique_name_in_owner = true
+position = Vector2(35, -33)
+sprite_frames = ExtResource("2_3oroe")
+animation = &"cat-mood-happy"
+autoplay = "cat-mood-sad"
+frame_progress = 0.59952736
+
+[node name="PowerGauge" type="AnimatedSprite2D" parent="." unique_id=253896765]
+unique_name_in_owner = true
+position = Vector2(-105, 95)
+sprite_frames = ExtResource("3_rye7x")
+animation = &"power-ani"
+script = ExtResource("4_jiyw7")
+
+[node name="Damage" type="Sprite2D" parent="." unique_id=997372373]
+unique_name_in_owner = true
+position = Vector2(111, 94)
+texture = ExtResource("5_bo6rb")
+
+[node name="prop_anim" type="AnimatedSprite2D" parent="." unique_id=1788200425]
+unique_name_in_owner = true
+visible = false
+z_index = 1
+position = Vector2(-255, 104)
+sprite_frames = SubResource("SpriteFrames_e78ct")
+autoplay = "default"
+frame = 1
+frame_progress = 0.2487201

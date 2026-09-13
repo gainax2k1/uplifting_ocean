@@ -3,7 +3,6 @@ extends Node
 @export var full_script : FullScript
 
 @onready var DialogBox = %DialogBox
-@onready var cat = %Sub2D.get_node("%Cat")
 @onready var NPC_Icon = %NPCIcon
 @onready var DialogText = %DialogText
 @onready var SpeakerLabel = %SpeakerLabel
@@ -12,7 +11,7 @@ extends Node
 @onready var power_gauge = %Sub2D.get_node("%PowerGauge")
 @onready var sub_animation = %Sub2D.get_node("%SubAnimation")
 @onready var prop_animation = %Sub2D.get_node("%prop_anim")
-@onready var fish_animation = %Sub2D.get_node("%FishAnimation")
+@onready var FishAnimation = %Sub2D.get_node("%FishAnimation")
 @onready var bgmusic = %Menu.get_node("%BGMusic")
 @onready var ask_for_help = %Sub2D.get_node("%AskForHelp")
 @onready var victory = %Victory
@@ -32,7 +31,8 @@ func _ready() -> void:
 	pass
 
 func start_game() -> void:
-	fish_animation.play("star_ani")
+	FishAnimation.play("star_ani_1 ")
+	
 	pass
 	
 func trans_switch(trans_name:String) -> void:
@@ -40,35 +40,29 @@ func trans_switch(trans_name:String) -> void:
 	match trans_name:
 		"Starfish":
 			ask_for_help.visible = false
-			cat.animation = "cat-mood-medium"
-			fish_animation.play("star_ani_2")
-			fish_animation.play("stop") 
+			FishAnimation.play("star_ani_2")
 			ask_for_help.set_text("Well, looks like they fixed the hole \n
-				but I'm still feeling stressed out... \n
-				I could use some more help...")
+				but I'm still feeling stressed out...")
+			
+			FishAnimation.play("eel_ani_1")
 			return
 			
 		"Puffer":
+			FishAnimation.play("puff_ani_2")
 			
-			cat.animation = "cat-mood-medium"
-			fish_animation.play("puff_ani_2")
-			fish_animation.play("stop")
 			
-			return
 			
 		"Eel":
-			ask_for_help.set_text("Ok, they recharged the power. \n
-				I still feel really down and could use a lift. \n
-				I still need help...")
-			fish_animation.play("puff_ani_1")
-			power_gauge.play("power-ani")
+			ask_for_help.visible = false
+			FishAnimation.play("eel_ani_2")
+			
 			return
 	
 		"Ending":
-			cat.animation =  "cat-mood-happy"
 			ask_for_help.disabled = true
 			ask_for_help.visible = false
 			#CALL ENDING...????????????????????
+			power_gauge.play("power-ani")
 			sub_animation.play("raise")
 			prop_animation.visible = true
 			#animate prop, show prop
@@ -81,12 +75,13 @@ func trans_switch(trans_name:String) -> void:
 	
 	return
 	
+
+
 func start_puffer() -> void:
 	pass
 
 
 func start_dialog(dialog:Dialogue):
-	cat.animation = "cat-mood-sad"
 	current_dialog = dialog
 	current_dialog_max = len(current_dialog.Dialogs)-1
 	done_button.disabled = true

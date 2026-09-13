@@ -1,13 +1,7 @@
 [gd_scene format=3 uid="uid://cq154mcxmfga3"]
 
-[ext_resource type="Texture2D" uid="uid://crfxgt5kskg30" path="res://Assets/Sprites/submarine.png" id="1_74qfh"]
 [ext_resource type="Script" uid="uid://vw7ubpxd70ma" path="res://Scripts/submarine.gd" id="1_tq48s"]
-[ext_resource type="Script" uid="uid://df6r33q0nlgwb" path="res://Scenes/sub_animation.gd" id="2_1qcwb"]
-[ext_resource type="SpriteFrames" uid="uid://b5mppdtkwflr5" path="res://Assets/Sprites/cat_frames.tres" id="3_tq48s"]
-[ext_resource type="SpriteFrames" uid="uid://dinnbsnscnmar" path="res://Assets/Sprites/fuel-gauge-frames.tres" id="4_ue3ij"]
-[ext_resource type="Script" uid="uid://fsgr6l5tqfpf" path="res://Scenes/power_gauge.gd" id="5_je60v"]
-[ext_resource type="Texture2D" uid="uid://c1tl56wr2qnt1" path="res://Assets/Sprites/damage.png" id="6_a07w3"]
-[ext_resource type="Texture2D" uid="uid://cfhyhuh243p5g" path="res://Assets/Sprites/propeller-ani-Sheet.png" id="7_s8co7"]
+[ext_resource type="PackedScene" uid="uid://cwx537we8vip0" path="res://Scenes/subby.tscn" id="2_45lfp"]
 [ext_resource type="Texture2D" uid="uid://cy1lbchsg4i61" path="res://Assets/Sprites/starfish.png" id="8_6jape"]
 [ext_resource type="Script" uid="uid://bl3j6uns3li4" path="res://Scripts/starfish_rotate.gd" id="9_1qcwb"]
 [ext_resource type="Script" uid="uid://2rua87p1c813" path="res://Scripts/animation.gd" id="9_48gdx"]
@@ -15,7 +9,6 @@
 [ext_resource type="Script" uid="uid://13yfh64w80ll" path="res://Scenes/eel.gd" id="11_48gdx"]
 [ext_resource type="SpriteFrames" uid="uid://bg1yqadue7ki0" path="res://Assets/Sprites/puffer-puff.tres" id="12_fq4r3"]
 [ext_resource type="Script" uid="uid://bhlcfdpmjju4i" path="res://Scenes/puffer_ani.gd" id="13_udrvb"]
-[ext_resource type="Texture2D" uid="uid://c4gjl1l7bh3t6" path="res://Assets/Sprites/puffer-big.png" id="15_wcbqk"]
 
 [sub_resource type="Animation" id="Animation_je60v"]
 length = 0.001
@@ -117,27 +110,14 @@ _data = {
 &"star_ani_2": SubResource("Animation_1qcwb")
 }
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_wqqa5"]
-atlas = ExtResource("7_s8co7")
-region = Rect2(0, 0, 64, 192)
+[sub_resource type="GDScript" id="GDScript_wcbqk"]
+script/source = "extends AnimationPlayer
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_45lfp"]
-atlas = ExtResource("7_s8co7")
-region = Rect2(64, 0, 64, 192)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_e78ct"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_wqqa5")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_45lfp")
-}],
-"loop": 1,
-"name": &"default",
-"speed": 5.0
-}]
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	#%SubAnimation.play(\"sink\")
+	pass # Replace with function body.
+"
 
 [sub_resource type="Animation" id="Animation_wcbqk"]
 length = 0.001
@@ -177,6 +157,74 @@ tracks/2/keys = {
 "update": 1,
 "values": [1]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("FishAnimation/Fish/Eel:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1485, -2)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("FishAnimation/Fish/Eel:animation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"eel-shock"]
+}
+
+[sub_resource type="Animation" id="Animation_2oy7c"]
+resource_name = "eel_ani_1"
+length = 5.0666666
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("FishAnimation/Fish/Eel:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 5.0666666),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1485, -2), Vector2(425, 43)]
+}
+
+[sub_resource type="Animation" id="Animation_7axes"]
+resource_name = "eel_ani_2"
+length = 7.0333333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("FishAnimation/Fish/Eel:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2, 4.9, 7.0333333),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(425, 43), Vector2(-86, 160), Vector2(-86, 160), Vector2(-925, -147)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("FishAnimation/Fish/Eel:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.0009999999),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"eel-shock"]
+}
 
 [sub_resource type="Animation" id="Animation_udrvb"]
 resource_name = "puff_ani_1"
@@ -211,14 +259,14 @@ tracks/0/keys = {
 }
 tracks/1/type = "value"
 tracks/1/imported = false
-tracks/1/enabled = false
+tracks/1/enabled = true
 tracks/1/path = NodePath("FishAnimation/Fish/Puffer:sprite_frames")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(),
 "transitions": PackedFloat32Array(),
-"update": 1,
+"update": 0,
 "values": []
 }
 tracks/2/type = "value"
@@ -230,12 +278,12 @@ tracks/2/loop_wrap = true
 tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 1,
+"update": 0,
 "values": [1]
 }
 
 [sub_resource type="Animation" id="Animation_48gdx"]
-resource_name = "star_ani"
+resource_name = "star_ani_1"
 length = 5.08
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -269,9 +317,11 @@ tracks/0/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_fq4r3"]
 _data = {
 &"RESET": SubResource("Animation_wcbqk"),
+&"eel_ani_1": SubResource("Animation_2oy7c"),
+&"eel_ani_2": SubResource("Animation_7axes"),
 &"puff_ani_1": SubResource("Animation_udrvb"),
 &"puff_ani_2": SubResource("Animation_kop6n"),
-&"star_ani": SubResource("Animation_48gdx"),
+&"star_ani_1": SubResource("Animation_48gdx"),
 &"star_ani_2": SubResource("Animation_fq4r3")
 }
 
@@ -283,42 +333,11 @@ unique_name_in_owner = true
 reset_on_save = false
 libraries/ = SubResource("AnimationLibrary_wqqa5")
 playback_auto_capture = false
-script = ExtResource("2_1qcwb")
+script = SubResource("GDScript_wcbqk")
 
-[node name="Submarine" type="Sprite2D" parent="SubAnimation" unique_id=886378409]
+[node name="Submarine" parent="SubAnimation" unique_id=1801688219 instance=ExtResource("2_45lfp")]
 unique_name_in_owner = true
 position = Vector2(290, 500)
-texture = ExtResource("1_74qfh")
-
-[node name="Cat" type="AnimatedSprite2D" parent="SubAnimation/Submarine" unique_id=1068311228]
-unique_name_in_owner = true
-position = Vector2(35, -33)
-sprite_frames = ExtResource("3_tq48s")
-animation = &"cat-mood-happy"
-autoplay = "cat-mood-sad"
-frame_progress = 0.59952736
-
-[node name="PowerGauge" type="AnimatedSprite2D" parent="SubAnimation/Submarine" unique_id=208710465]
-unique_name_in_owner = true
-position = Vector2(-105, 95)
-sprite_frames = ExtResource("4_ue3ij")
-animation = &"power-ani"
-script = ExtResource("5_je60v")
-
-[node name="Damage" type="Sprite2D" parent="SubAnimation/Submarine" unique_id=1689370004]
-unique_name_in_owner = true
-position = Vector2(111, 94)
-texture = ExtResource("6_a07w3")
-
-[node name="prop_anim" type="AnimatedSprite2D" parent="SubAnimation/Submarine" unique_id=1788877124]
-unique_name_in_owner = true
-visible = false
-z_index = 1
-position = Vector2(-255, 104)
-sprite_frames = SubResource("SpriteFrames_e78ct")
-autoplay = "default"
-frame = 1
-frame_progress = 0.2487201
 
 [node name="FishAnimation" type="AnimationPlayer" parent="." unique_id=1294757149]
 unique_name_in_owner = true
@@ -332,31 +351,29 @@ position = Vector2(290, 500)
 
 [node name="Starfish" type="Sprite2D" parent="FishAnimation/Fish" unique_id=303350784]
 unique_name_in_owner = true
-position = Vector2(198, 30)
+position = Vector2(1457, 163)
 rotation = -6.2831855
 texture = ExtResource("8_6jape")
 script = ExtResource("9_1qcwb")
 
 [node name="Eel" type="AnimatedSprite2D" parent="FishAnimation/Fish" unique_id=1975993594]
 unique_name_in_owner = true
+z_index = 1
 position = Vector2(1485, -2)
 sprite_frames = ExtResource("10_wcbqk")
 animation = &"eel-shock"
-frame_progress = 0.43603608
+autoplay = "eel-shock"
+frame_progress = 0.63777596
 script = ExtResource("11_48gdx")
 
 [node name="Puffer" type="AnimatedSprite2D" parent="FishAnimation/Fish" unique_id=893988858]
 unique_name_in_owner = true
+z_index = 1
 position = Vector2(1482, 99)
 sprite_frames = ExtResource("12_fq4r3")
 animation = &"puffer-ani"
+autoplay = "puffer-ani"
 frame = 1
 script = ExtResource("13_udrvb")
-
-[node name="PufferBig" type="Sprite2D" parent="FishAnimation/Fish" unique_id=40842711]
-unique_name_in_owner = true
-visible = false
-position = Vector2(63, 195)
-texture = ExtResource("15_wcbqk")
 
 [connection signal="animation_finished" from="FishAnimation" to="FishAnimation" method="_on_animation_finished"]
