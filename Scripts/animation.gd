@@ -3,7 +3,7 @@ extends AnimationPlayer
 @onready var damage: Sprite2D = %Subby.get_node("%Damage")
 @onready var BigPuffer: Sprite2D = %Subby.get_node("%BigPuffer")
 #@onready var gauge = %Subby.get_node("%PowerGauge")
-#@onready var power_gauge  = %Sub2D.get_node("%PowerGauge")
+@onready var gauge  = $"../../Sub2D".get_node("%PowerGauge")
 @onready var ask_for_help = $"../AskForHelp"
 @onready var FishAnimation = %FishAnimation
 @onready var Starfish = %Starfish
@@ -11,7 +11,7 @@ extends AnimationPlayer
 @onready var sub_animation = $"../../Sub2D".get_node("%SubAnimation")
 @onready var bgmusic = $"../../Menu".get_node("%BGMusic")
 @onready var victory = $"../../Dialog".get_node("%Victory")
-@onready var big_puffer = $"..Subby".get_node("%PufferBig")
+@onready var big_puffer = $"../../Sub2D".get_node("%PufferBig")
 #@onready var big_puffer: Sprite2D = %PufferBig
 @export var subby: Sprite2D
 
@@ -39,8 +39,11 @@ func _on_animation_finished(anim_name: StringName) -> void:
 		#FishAnimation.current_animation ="eel_ani_2"
 		ask_for_help.visible = true
 		return
-		
 	if anim_name == "eel_ani_2":
+		gauge.play("power-ani")
+		FishAnimation.play("eel_ani_3")
+		
+	if anim_name == "eel_ani_3":
 		#FishAnimation.stop()
 		ask_for_help.set_text("Ok, they recharged the power. \n
 				I still feel really down and could use a lift. \n
