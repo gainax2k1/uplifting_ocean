@@ -20,7 +20,8 @@ transform = Transform2D(1, 0, 0, 1, 200, 100)
 [node name="DialogBox" type="Panel" parent="CanvasLayer" unique_id=351223558]
 unique_name_in_owner = true
 top_level = true
-custom_minimum_size = Vector2(700, 300)
+custom_minimum_size = Vector2(800, 350)
+custom_maximum_size = Vector2(800, 350)
 propagate_maximum_size = true
 anchors_preset = -1
 anchor_right = 0.754
