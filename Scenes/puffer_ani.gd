@@ -10,12 +10,11 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
-	"""
+
 	puff_counter += delta
 	if puff_counter == 180:
 		puff_counter = 0	
 	puff_ani.offset.y += sin(puff_counter) *.2
-	"""
 	pass
 
 	
