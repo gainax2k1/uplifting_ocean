@@ -23,4 +23,3 @@ All code, graphics, and assets by me except for:
     
 
 Thanks for checking out my second game!  
-# Resources
